@@ -1,10 +1,12 @@
-import About from "./components/about/page";
-import Contact from "./components/contact/page";
-import Education from "./components/education/page";
-import Hero from "./components/hero/page";
-import Projects from "./components/projects/page";
-import Skills from "./components/skills/page";
+import dynamic from "next/dynamic";
 
+
+const About = dynamic(()=> import( "./components/about/page"))
+const Contact = dynamic(()=>import("./components/contact/page"))
+const Education = dynamic(()=>import("./components/education/page"))
+const Hero = dynamic(()=>import("./components/hero/page"))
+const Projects = dynamic(()=>import("./components/projects/page"))
+const Skills = dynamic(()=>import("./components/skills/page"))
 
 export default function Home() {
   return (
