@@ -10,7 +10,7 @@ const About = () => {
             <motion.div className='w-275 bg-[#fcf4f0] rounded-[40px] h-120 flex justify-center items-center gap-20 shadow-lg shadow-black-200'>
 
                 <div className='w-150 flex flex-col gap-10'>
-                    <h1 className='text-[#ff6659] text-6xl font-bold flex gap-5'><span className='text-black'>About</span><span>Me</span></h1>
+                    <h1 className=' text-6xl font-bold flex gap-5'><span className='text-black'>About</span><span className='text-transparent bg-clip-text bg-linear-to-br from-[#f6aa74] via-[#f8c5bb] to-[#f4593a]'>Me</span></h1>
                     <p className='text-l text-gray-700'>
                         I’m a passionate frontend developer who enjoys transforming ideas into beautiful and interactive web experiences. I focus on building modern, responsive interfaces using the latest web technologies.
 
@@ -39,11 +39,11 @@ const About = () => {
 
                     </div>
                 </div>
-                <div className=' h-65 w-85 bg-[#fcf4f0] '>
+                <div className=' h-90 w-85 bg-[#fcf4f0] flex justify-center '>
                     <Image
                         src={about}
                         alt='about'
-                        className='rounded-[100px] relative bottom-8'
+                        className='rounded-[100px] '
 
                     />
                 </div>

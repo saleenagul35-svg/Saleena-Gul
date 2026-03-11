@@ -7,18 +7,18 @@ const Contact = () => {
     return (
         <>
             <section className=' flex justify-center mt-20' id='contact'>
-                <motion.div className='w-275 bg-[#f9efe5] rounded-[40px] h-135 flex flex-col justify-center items-center gap-10 shadow-lg shadow-black-200 '>
+                <motion.div className='w-275 bg-[#FAF1ED] rounded-[40px] h-135 flex flex-col justify-center items-center gap-10 shadow-lg shadow-black-200 '>
                     <div className='flex flex-col justify-center items-center gap-3'>
-                        <h1 className=' text-5xl font-bold'>Get In Touch</h1>
+                        <h1 className=' text-5xl font-bold text-transparent bg-clip-text bg-linear-to-br from-[#f6aa74] via-[#f8c5bb] to-[#f4593a]'>Get In Touch</h1>
                         <p className='text-xl text-gray-700'>Feel free to reach out for collaboration or opportunities</p>
                     </div>
                     <div className='flex gap-30 justify-center items-center '>
 
-                        <div className=' h-100 w-100 bg-[#f9efe5] '>
+                        <div className=' h-90 w-85 bg-[#FAF1ED] flex justify-center '>
                             <Image
                                 src={contact}
                                 alt='skills'
-                                className='rounded-[100px] relative bottom-9 h-full'
+                                className='rounded-[100px]'
 
                             />
                         </div>

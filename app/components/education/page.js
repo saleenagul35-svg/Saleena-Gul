@@ -38,7 +38,7 @@ const Education = () => {
         <>
             <section className='flex justify-center mt-20' id='education'>
                 <motion.div className='w-275 bg-[#fcf4f0] rounded-[40px] h-120 flex flex-col justify-center items-center gap-25 shadow-lg shadow-black-200 '>
-                    <h1 className='text-[#ff6659] text-5xl font-bold flex gap-5'><span className='text-black'>My</span><span>Education</span></h1>
+                    <h1 className=' text-5xl font-bold flex gap-5'><span className='text-black'>My</span><span className='text-transparent bg-clip-text bg-linear-to-br from-[#f6aa74] via-[#f8c5bb] to-[#f4593a]'>Education</span></h1>
                     <div className='flex gap-6'>
                     {educationData.map((arr,i) =>
                         <motion.div key={i} className='w-60 bg-[#ffffff] p-5 rounded-2xl flex flex-col gap-5' whileHover={{y:-3,scale:1.05, boxShadow:"0px 0px 25px #f9a59d"}}>
