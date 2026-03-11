@@ -28,7 +28,7 @@ const Contact = () => {
 
                         <motion.div
                             initial={{ scale: 0.2, opacity: 0 }}
-                            whileInView={{ scale: 1.75, opacity: 1 }}
+                            whileInView={{ scale: 1.5, opacity: 1 }}
                             viewport={{ once: false }}
                             transition={{ duration: 0.6 }}
                             className='h-64 w-64 md:h-80 md:w-80 flex justify-center'
