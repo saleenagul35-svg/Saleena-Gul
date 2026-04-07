@@ -43,8 +43,8 @@ const Projects = () => {
             title: "React To-Do App",
             tech: "React, Tailwind CSS",
             description: "Modern task management application.",
-            github: "#",
-            live: "#",
+            github: "https://github.com/saleenagul35-svg/Todo-list-app.git",
+            live: "https://todo-list-app-three-opal.vercel.app/",
             image: "/imgs/To-do-list.png",
         },
         {
