@@ -73,8 +73,6 @@ const About = () => {
 
           </div>
         </motion.div>
-
-
         {/* IMAGE SECTION */}
         <motion.div
           initial={{ x: 100, opacity: 0 }}

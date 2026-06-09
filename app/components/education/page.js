@@ -6,7 +6,7 @@ const educationData = [
     {
         title: "MERN Stack",
         institute: "PNY Trainings – Arfa Tower, Lahore",
-        duration: "August 2025 – Present",
+        duration: "August 2025 – March 2026",
         description:
             "Currently advancing my frontend expertise and building strong backend & database development skills.",
     },
