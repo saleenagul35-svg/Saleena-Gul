@@ -74,7 +74,7 @@ const Projects = () => {
     ];
 
     const leftProjects = projectsArray.slice(0, 6)
-    const rightProjects = projectsArray.slice(6, 7)
+    const rightProjects = projectsArray.slice(6, 8)
 
     return (
         <>
