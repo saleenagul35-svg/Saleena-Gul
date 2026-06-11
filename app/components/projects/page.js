@@ -8,6 +8,22 @@ const Projects = () => {
 
     const projectsArray = [
         {
+            title: "Daraz Ecommerce Website",
+            tech: "HTML, CSS",
+            description: "Daraz website clone built with HTML and CSS",
+            github: "https://github.com/saleenagul35-svg/Daraz.git",
+            live: "https://saleenagul35-svg.github.io/Daraz/",
+            image: "/imgs/daraz.png",
+        },
+        {
+            title: "PNY Trainings Website",
+            tech: "HTML, CSS",
+            description: "PNY Trainings Website clone built with HTML and CSS",
+            github: "https://github.com/saleenagul35-svg/PNY-Trainings.git",
+            live: "https://pnytrainingswebsite.netlify.app/",
+            image: "/imgs/pny.png",
+        },
+        {
             title: "Burger Builder App",
             tech: "HTML, CSS, JavaScript (Vanilla JS)",
             description: "A dynamic burger customization application built in vanilla JavaScript.",
@@ -57,8 +73,8 @@ const Projects = () => {
         },
     ];
 
-    const leftProjects = projectsArray.slice(0, 4)
-    const rightProjects = projectsArray.slice(4, 6)
+    const leftProjects = projectsArray.slice(0, 5)
+    const rightProjects = projectsArray.slice(5, 7)
 
     return (
         <>
@@ -87,7 +103,7 @@ const Projects = () => {
                                     whileInView={{ scale: 1, x: 0, opacity: 1 }}
                                     viewport={{ once: false }}
                                     transition={{ duration: 0.6 }}
-                                    whileHover={{ y: -5, scale: 1.05,borderRadius:"20px", boxShadow: "0px 0px 25px #f9a59d" }}
+                                    whileHover={{ y: -5, scale: 1.05, borderRadius: "20px", boxShadow: "0px 0px 25px #f9a59d" }}
                                     className='bg-[#FAF1ED]'
                                 >
                                     <Image
@@ -127,7 +143,7 @@ const Projects = () => {
                                     whileInView={{ scale: 1, x: 0, opacity: 1 }}
                                     viewport={{ once: false }}
                                     transition={{ duration: 0.8 }}
-                                    whileHover={{ y: -5, scale: 1.05, borderRadius:"20px", boxShadow: "0px 0px 25px #f9a59d" }}
+                                    whileHover={{ y: -5, scale: 1.05, borderRadius: "20px", boxShadow: "0px 0px 25px #f9a59d" }}
                                     className='bg-[#FAF1ED]'
                                 >
                                     <Image
@@ -135,7 +151,7 @@ const Projects = () => {
                                         alt={arr.title}
                                         height={396}
                                         width={300}
-                                       className='rounded-[20px] w-full max-w-xs h-40 sm:h-44 md:h-90 object-cover'
+                                        className='rounded-[20px] w-full max-w-xs h-40 sm:h-44 md:h-90 object-cover'
                                     />
                                 </motion.a>
 

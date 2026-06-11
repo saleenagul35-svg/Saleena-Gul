@@ -51,7 +51,7 @@ const Hero = () => {
 
           <div className='flex flex-wrap gap-4'>
             <motion.a
-              href='../../../public/imgs/Saleena-Gul.pdf'
+              href='../../../public/imgs/SALEENA GUl.pdf'
               download
               whileHover={{ backgroundColor: "white", border: "1px solid #ff6659", color: "#ff6659", scale: 1.08 }}
               className='py-2.5 px-5 rounded-[10px] bg-[#ff6659] text-white flex items-center gap-2'
