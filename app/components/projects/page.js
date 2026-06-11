@@ -149,7 +149,7 @@ const Projects = () => {
                                     <Image
                                         src={arr.image}
                                         alt={arr.title}
-                                        height={396}
+                                        height={410}
                                         width={300}
                                         className='rounded-[20px] w-full max-w-xs h-40 sm:h-44 md:h-90 object-cover'
                                     />
