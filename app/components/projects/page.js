@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { ExternalLink } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
 
-const featuredProjects = [
+const projectsArray = [
     {
         title: "Moon Burger Restaurant",
         tech: "MERN Stack",
@@ -90,7 +90,7 @@ const featuredProjects = [
     },
 ]
 
-// const featuredProjects = projectsArray.filter((p) => p.featured)
+const featuredProjects = projectsArray.filter((p) => p.featured && !p.featured)
 const gridProjects = projectsArray.filter((p) => !p.featured)
 
 // Featured cards: bigger, more dramatic entrance — slide + grow + slight rotate
