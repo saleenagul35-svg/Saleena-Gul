@@ -93,21 +93,22 @@ const projectsArray = [
 const featuredProjects = projectsArray.filter((p) => p.featured)
 const gridProjects = projectsArray.filter((p) => !p.featured)
 
-const containerVariants = {
-    hidden: {},
-    show: {
-        transition: { staggerChildren: 0.12 },
+// Featured cards: bigger, more dramatic entrance — slide + grow + slight rotate
+const featuredVariants = (direction) => ({
+    hidden: {
+        opacity: 0,
+        scale: 0.75,
+        x: direction === "left" ? -120 : 120,
+        rotate: direction === "left" ? -6 : 6,
     },
-}
-
-const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
     show: {
         opacity: 1,
-        y: 0,
-        transition: { duration: 0.6, ease: "easeOut" },
+        scale: 1,
+        x: 0,
+        rotate: 0,
+        transition: { duration: 0.7, ease: "easeOut" },
     },
-}
+})
 
 // Snake-pattern variants: cards grow in from a corner, direction depends on
 // which way the row flows (left-to-right or right-to-left)
@@ -197,21 +198,18 @@ const Projects = () => {
                 </div>
 
                 {/* Featured MERN projects */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: false, amount: 0.2 }}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                >
-                    {featuredProjects.map((project) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {featuredProjects.map((project, idx) => (
                         <motion.a
                             key={project.title}
                             href={project.live}
                             target="_blank"
                             rel="noopener noreferrer"
-                            variants={cardVariants}
-                            whileHover={{ y: -6 }}
+                            variants={featuredVariants(idx === 0 ? "left" : "right")}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: false, amount: 0.4 }}
+                            whileHover={{ y: -6, scale: 1.02 }}
                             className="group relative overflow-hidden rounded-3xl bg-white
                             flex flex-col shadow-md shadow-black/5
                             hover:shadow-2xl hover:shadow-[#f9a59d]/40 transition-shadow duration-300"
@@ -248,7 +246,7 @@ const Projects = () => {
                             </div>
                         </motion.a>
                     ))}
-                </motion.div>
+                </div>
 
                 {/* Remaining projects — snake scroll pattern on desktop */}
                 {/* Desktop: two rows, row 1 flows left→right, row 2 flows right→left (snake) */}
