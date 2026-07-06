@@ -136,10 +136,10 @@ const SnakeCard = ({ project, direction, delay }) => (
         variants={snakeVariants(direction)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.5 }}
+        viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.55, ease: "easeOut", delay }}
         whileHover={{ y: -5, scale: 1.03 }}
-        className="group relative aspect-square overflow-hidden rounded-2xl
+        className="group block relative w-full h-full aspect-square overflow-hidden rounded-2xl
         shadow-md shadow-black/5 hover:shadow-xl hover:shadow-[#f9a59d]/40
         transition-shadow duration-300"
     >
@@ -253,14 +253,14 @@ const Projects = () => {
                 <div className="hidden lg:flex lg:flex-col gap-6">
                     <div className="flex flex-row gap-6">
                         {gridProjects.slice(0, 4).map((project, idx) => (
-                            <div key={project.title} className="flex-1 w-full">
+                            <div key={project.title} className="flex-1 w-full h-full">
                                 <SnakeCard project={project} direction="ltr" delay={idx * 0.15} />
                             </div>
                         ))}
                     </div>
                     <div className="flex flex-row-reverse gap-6">
                         {gridProjects.slice(4, 8).map((project, idx) => (
-                            <div key={project.title} className="flex-1 w-full">
+                            <div key={project.title} className="flex-1 w-full h-full">
                                 <SnakeCard project={project} direction="rtl" delay={idx * 0.15} />
                             </div>
                         ))}
