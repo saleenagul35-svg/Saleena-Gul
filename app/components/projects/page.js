@@ -110,35 +110,34 @@ const featuredVariants = (direction) => ({
     },
 })
 
-// Snake-pattern variants: cards grow in from a corner, direction depends on
-// which way the row flows (left-to-right or right-to-left)
-// Stair-step variants: har card bottom-right corner ki taraf se grow hota hai;
-// delay position ke hisab se lagta hai isliye ek diagonal staircase cascade banta hai
+// Stair-step variants: har card bottom-right corner ki taraf se grow hota hai.
+// NOTE: is baar delay yahan variant ke andar nahi, balke SnakeCard ko custom
+// transition prop se milta hai — taky parent ke saath sync rahe.
 const stairVariants = {
     hidden: {
         opacity: 0,
         scale: 0.3,
-        x: 50,
-        y: 50,
+        x: 90,
+        y: 90,
     },
     show: {
         opacity: 1,
         scale: 1,
         x: 0,
         y: 0,
-        transition: { duration: 0.5, ease: "easeOut" },
     },
 }
 
+// SnakeCard ab khud whileInView trigger NAHI karta — ye sirf variants ko
+// follow karta hai jo iske parent (grid container) se propagate hoti hain.
+// Isi wajah se saare cards ek hi waqt pe "shuru" hote hain, aur sirf unka
+// apna `delay` unhein stairs ki tarah stagger karta hai.
 const SnakeCard = ({ project, delay }) => (
     <motion.a
         href={project.live}
         target="_blank"
         rel="noopener noreferrer"
         variants={stairVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.5, ease: "easeOut", delay }}
         whileHover={{ y: -5, scale: 1.03 }}
         className="group block relative w-full h-full aspect-square overflow-hidden rounded-2xl
@@ -170,6 +169,7 @@ const SnakeCard = ({ project, delay }) => (
         </div>
     </motion.a>
 )
+
 const Projects = () => {
     return (
         <section className="flex justify-center mt-20 px-4" id="projects">
@@ -247,13 +247,19 @@ const Projects = () => {
                     ))}
                 </div>
 
-                {/* Remaining projects — snake scroll pattern on desktop */}
-                {/* Desktop: two rows, row 1 flows left→right, row 2 flows right→left (snake) */}
-                {/* Remaining projects — diagonal staircase reveal, bottom-right se start */}
-                <div className="hidden lg:flex lg:flex-col gap-6">
+                {/* Remaining projects — diagonal staircase reveal, bottom-right se start.
+                    Poore grid pe EK hi whileInView lagaya hai (parent motion.div pe),
+                    taky sab cards ek hi waqt "activate" hon aur sirf unka apna delay
+                    unhein stairs ki tarah stagger kare. */}
+                <motion.div
+                    className="hidden lg:flex lg:flex-col gap-6"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.2 }}
+                >
                     <div className="flex flex-row gap-6">
                         {gridProjects.slice(0, 4).map((project, idx) => {
-                            // top row: rightmost card corner ke sabse qareeb hai
+                            // top row: rightmost card (idx 3) corner ke sabse qareeb hai
                             const delay = ((3 - idx) + 1) * 0.12
                             return (
                                 <div key={project.title} className="flex-1 w-full h-full">
@@ -273,19 +279,24 @@ const Projects = () => {
                             )
                         })}
                     </div>
-                </div>
+                </motion.div>
 
-                {/* Mobile / tablet: simple stacked reveal, no snake reversal needed since it's already single/2-column */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:hidden gap-4">
+                {/* Mobile / tablet: simple stacked reveal — parent-level trigger yahan bhi,
+                    consistency ke liye, lekin single delay progression (koi corner logic nahi) */}
+                <motion.div
+                    className="grid grid-cols-2 sm:grid-cols-3 lg:hidden gap-4"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.2 }}
+                >
                     {gridProjects.map((project, idx) => (
                         <SnakeCard
                             key={project.title}
                             project={project}
-                            direction={idx % 2 === 0 ? "ltr" : "rtl"}
-                            delay={(idx % 3) * 0.12}
+                            delay={(idx % 4) * 0.1}
                         />
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     )
