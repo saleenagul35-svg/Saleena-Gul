@@ -90,7 +90,7 @@ const projectsArray = [
     },
 ]
 
-const featuredProjects = projectsArray
+const featuredProjects = projectsArray.filter((p) => p.featured)
 const gridProjects = projectsArray.filter((p) => !p.featured)
 
 // Featured cards: bigger, more dramatic entrance — slide + grow + slight rotate
