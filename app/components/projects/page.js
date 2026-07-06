@@ -253,14 +253,14 @@ const Projects = () => {
                 <div className="hidden lg:flex lg:flex-col gap-6">
                     <div className="flex flex-row gap-6">
                         {gridProjects.slice(0, 4).map((project, idx) => (
-                            <div key={project.title} className="flex-1">
+                            <div key={project.title} className="flex-1 w-full">
                                 <SnakeCard project={project} direction="ltr" delay={idx * 0.15} />
                             </div>
                         ))}
                     </div>
                     <div className="flex flex-row-reverse gap-6">
                         {gridProjects.slice(4, 8).map((project, idx) => (
-                            <div key={project.title} className="flex-1">
+                            <div key={project.title} className="flex-1 w-full">
                                 <SnakeCard project={project} direction="rtl" delay={idx * 0.15} />
                             </div>
                         ))}
