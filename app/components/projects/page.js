@@ -55,6 +55,22 @@ const Projects = () => {
             live: "https://saleenagul35-svg.github.io/Project-management-dashboard/",
             image: "/imgs/Dashboard.png",
         },
+                {
+            title: "Moon Burger Restaurant",
+            tech: "MERN Stack",
+            description: "An interactive web application to order food of your desire.",
+            github: "https://github.com/saleenagul35-svg/Moon-Burger-Restaurant.git",
+            live: "https://moon-burger-restaurant.vercel.app/",
+            image: "/imgs/moon.png",
+        },
+        {
+            title:"Library Management System",
+            tech: "MERN Stack",
+            description: "A Smart Library System that replaces the manual labour and saves time.",
+            github: "https://github.com/saleenagul35-svg/Library-Management-System.git",
+            live: "https://library-management-system-psi-six.vercel.app/",
+            image: "/imgs/library.png",
+        },
         {
             title: "React To-Do App",
             tech: "React, Tailwind CSS",
@@ -73,8 +89,8 @@ const Projects = () => {
         },
     ];
 
-    const leftProjects = projectsArray.slice(0, 6)
-    const rightProjects = projectsArray.slice(6, 8)
+    const leftProjects = projectsArray.slice(0, 8)
+    const rightProjects = projectsArray.slice(8, 10)
 
     return (
         <>
