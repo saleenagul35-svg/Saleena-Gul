@@ -133,11 +133,11 @@ const SnakeCard = ({ project, direction, delay }) => (
         href={project.live}
         target="_blank"
         rel="noopener noreferrer"
-        variants={snakeVariants(direction)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 0.55, ease: "easeOut", delay }}
+        // variants={snakeVariants(direction)}
+        // initial="hidden"
+        // whileInView="show"
+        // viewport={{ once: false, amount: 0.5 }}
+        // transition={{ duration: 0.55, ease: "easeOut", delay }}
         whileHover={{ y: -5, scale: 1.03 }}
         className="group relative aspect-square overflow-hidden rounded-2xl
         shadow-md shadow-black/5 hover:shadow-xl hover:shadow-[#f9a59d]/40
