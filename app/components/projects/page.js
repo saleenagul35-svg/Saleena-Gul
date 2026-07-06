@@ -112,32 +112,34 @@ const featuredVariants = (direction) => ({
 
 // Snake-pattern variants: cards grow in from a corner, direction depends on
 // which way the row flows (left-to-right or right-to-left)
-const snakeVariants = (direction) => ({
+// Stair-step variants: har card bottom-right corner ki taraf se grow hota hai;
+// delay position ke hisab se lagta hai isliye ek diagonal staircase cascade banta hai
+const stairVariants = {
     hidden: {
         opacity: 0,
-        scale: 0.25,
-        x: direction === "ltr" ? -70 : 70,
-        y: 30,
+        scale: 0.3,
+        x: 50,
+        y: 50,
     },
     show: {
         opacity: 1,
         scale: 1,
         x: 0,
         y: 0,
-        transition: { duration: 0.55, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" },
     },
-})
+}
 
-const SnakeCard = ({ project, direction, delay }) => (
+const SnakeCard = ({ project, delay }) => (
     <motion.a
         href={project.live}
         target="_blank"
         rel="noopener noreferrer"
-        variants={snakeVariants(direction)}
+        variants={stairVariants}
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.55, ease: "easeOut", delay }}
+        transition={{ duration: 0.5, ease: "easeOut", delay }}
         whileHover={{ y: -5, scale: 1.03 }}
         className="group block relative w-full h-full aspect-square overflow-hidden rounded-2xl
         shadow-md shadow-black/5 hover:shadow-xl hover:shadow-[#f9a59d]/40
@@ -149,11 +151,9 @@ const SnakeCard = ({ project, direction, delay }) => (
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div
-            className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent
             opacity-0 group-hover:opacity-100 transition-opacity duration-300
-            flex flex-col justify-end p-4"
-        >
+            flex flex-col justify-end p-4">
             <h4 className="text-white text-sm font-bold leading-tight">{project.title}</h4>
             <span className="text-[#f8c5bb] text-[11px] font-medium mb-2">{project.tech}</span>
             <div className="flex items-center gap-3">
@@ -170,7 +170,6 @@ const SnakeCard = ({ project, direction, delay }) => (
         </div>
     </motion.a>
 )
-
 const Projects = () => {
     return (
         <section className="flex justify-center mt-20 px-4" id="projects">
@@ -250,20 +249,29 @@ const Projects = () => {
 
                 {/* Remaining projects — snake scroll pattern on desktop */}
                 {/* Desktop: two rows, row 1 flows left→right, row 2 flows right→left (snake) */}
+                {/* Remaining projects — diagonal staircase reveal, bottom-right se start */}
                 <div className="hidden lg:flex lg:flex-col gap-6">
                     <div className="flex flex-row gap-6">
-                        {gridProjects.slice(0, 4).map((project, idx) => (
-                            <div key={project.title} className="flex-1 w-full h-full">
-                                <SnakeCard project={project} direction="ltr" delay={idx * 0.15} />
-                            </div>
-                        ))}
+                        {gridProjects.slice(0, 4).map((project, idx) => {
+                            // top row: rightmost card corner ke sabse qareeb hai
+                            const delay = ((3 - idx) + 1) * 0.12
+                            return (
+                                <div key={project.title} className="flex-1 w-full h-full">
+                                    <SnakeCard project={project} delay={delay} />
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className="flex flex-row-reverse gap-6">
-                        {gridProjects.slice(4, 8).map((project, idx) => (
-                            <div key={project.title} className="flex-1 w-full h-full">
-                                <SnakeCard project={project} direction="rtl" delay={idx * 0.15} />
-                            </div>
-                        ))}
+                        {gridProjects.slice(4, 8).map((project, idx) => {
+                            // bottom row: idx=0 (rightmost, corner) hi actual starting point hai
+                            const delay = idx * 0.12
+                            return (
+                                <div key={project.title} className="flex-1 w-full h-full">
+                                    <SnakeCard project={project} delay={delay} />
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
 
