@@ -2,7 +2,8 @@
 import React from 'react'
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Github, ExternalLink } from "lucide-react"
+import { FaGithub } from "react-icons/fa"
+import { ExternalLink } from "lucide-react"
 
 const projectsArray = [
     {
@@ -170,7 +171,7 @@ const Projects = () => {
                                 <div className="flex items-center justify-between">
                                     <h3 className="text-lg font-bold text-[#3a2c28]">{project.title}</h3>
                                     <div className="flex items-center gap-3 text-[#3a2c28]">
-                                        <Github
+                                        <FaGithub 
                                             size={18}
                                             className="hover:text-[#f4593a] transition-colors"
                                             onClick={(e) => {
@@ -223,7 +224,7 @@ const Projects = () => {
                                 <h4 className="text-white text-sm font-bold leading-tight">{project.title}</h4>
                                 <span className="text-[#f8c5bb] text-[11px] font-medium mb-2">{project.tech}</span>
                                 <div className="flex items-center gap-3">
-                                    <Github
+                                    <FaGithub 
                                         size={16}
                                         className="text-white hover:text-[#f4593a] transition-colors"
                                         onClick={(e) => {
